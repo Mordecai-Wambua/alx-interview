@@ -5,7 +5,7 @@
 def canUnlockAll(boxes):
     """Determine if all the boxes can be opened."""
     count = len(boxes)
-    unlocked = set()
+    unlocked = set([0])
     queue = set(boxes[0])
 
     while queue:
