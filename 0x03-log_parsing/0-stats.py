@@ -18,10 +18,10 @@ codes = {
 def print_stats(total_size):
     """Function to print the computed metrics."""
     print(f'File size: {total_size}')
-    for k, v in codes.items():
-        if v == 0:
+    for k in sorted(codes.keys()):
+        if codes[k] == 0:
             continue
-        print(f'{k}: {v}')
+        print(f'{k}: {codes[k]}')
 
 
 def main():
@@ -45,7 +45,7 @@ def main():
 
             if line_count % 10 == 0:
                 print_stats(file_size)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print_stats(file_size)
 
 
