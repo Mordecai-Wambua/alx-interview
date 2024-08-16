@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Script that reads stdin line by line and computes metrics."""
 import sys
+import re
 
 
 codes = {
@@ -31,8 +32,9 @@ def main():
     try:
         for line in sys.stdin:
             line_format = line.split()
-            if len(line_format) < 9:
-                continue
+
+            if len(line_format) < 7:
+                continue                
 
             size = int(line_format[-1])
             code = line_format[-2]
