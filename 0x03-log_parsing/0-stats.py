@@ -47,6 +47,8 @@ def main():
                 print_stats(file_size)
     except (KeyboardInterrupt, EOFError):
         print_stats(file_size)
+    finally:
+        print_stats(file_size)
 
 
 main()
