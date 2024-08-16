@@ -34,7 +34,7 @@ def main():
             line_format = line.split()
 
             if len(line_format) < 7:
-                continue                
+                continue
 
             size = int(line_format[-1])
             code = line_format[-2]
