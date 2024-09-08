@@ -10,7 +10,7 @@ request(url + movieId, (error, response, body) => {
   const output = JSON.parse(body).characters;
   const characters = output.map(
     (url) =>
-      new Promise((resolve, reject => {
+      new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
           if (error) {
             reject(error);
