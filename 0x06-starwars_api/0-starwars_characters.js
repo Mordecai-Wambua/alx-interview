@@ -1,16 +1,16 @@
 #!/usr/bin/node
-const request = require("request");
-const movie_id = process.argv[2];
-const url = "https://swapi-api.alx-tools.com/api/films/";
+const request = require('request');
+const movieId = process.argv[2];
+const url = 'https://swapi-api.alx-tools.com/api/films/';
 
-request(url + movie_id, (error, response, body) => {
+request(url + movieId, (error, response, body) => {
   if (error) {
     console.error(error);
   }
   const output = JSON.parse(body).characters;
   const characters = output.map(
     (url) =>
-      new Promise((resolve, response) => {
+      new Promise((resolve, reject => {
         request(url, (error, response, body) => {
           if (error) {
             reject(error);
@@ -21,6 +21,6 @@ request(url + movie_id, (error, response, body) => {
   );
 
   Promise.all(characters)
-    .then((names) => console.log(names.join("\n")))
+    .then((names) => console.log(names.join('\n')))
     .catch((errors) => console.log(errors));
 });
